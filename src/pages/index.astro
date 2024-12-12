@@ -1,12 +1,12 @@
 ---
 import "../styles/global.css";
-import Navigation from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 
 const pageTitle = "My Astro FrontEnd";
 ---
 
-<html lang="en">
+<html lang="en" class="bg-blue-100">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -15,8 +15,13 @@ const pageTitle = "My Astro FrontEnd";
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Navigation />
+    <Header />
     <h1>Astro</h1>
     <Footer />
+    <script>
+      document.querySelector(".hamburger")?.addEventListener("click", () => {
+        document.querySelector(".nav-links")?.classList.toggle("expanded");
+      });
+    </script>
   </body>
 </html>
