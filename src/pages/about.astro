@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -13,6 +15,10 @@ const skills = ["HTML", "CSS/Tailwind", "JavaScript", "React", "Astro", "AI"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "700";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -20,6 +26,13 @@ const goal = 3;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      .skills {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
@@ -55,7 +68,7 @@ const goal = 3;
     </ul>
     <p>My skills are:</p>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skills">{skill}</li>)}
     </ul>
 
     {happy && <p>I am happy to be learning Astro!</p>}
